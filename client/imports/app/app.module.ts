@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { METEOR_PROVIDERS } from 'angular2-meteor';
 
 import { AppComponent } from './app.component';
-import { PartiesFormComponent } from './parties/parties-form.component';
+import { PARTIES_DECLARATIONS } from './parties';
+import { routes } from './app.routes';
 
 @NgModule({
   // Components, Pipes, Directive
   declarations: [
     AppComponent,
-    PartiesFormComponent
+    ...PARTIES_DECLARATIONS
   ],
   // Providers
   providers: [
@@ -18,6 +20,7 @@ import { PartiesFormComponent } from './parties/parties-form.component';
   // Modules
   imports: [
     BrowserModule,
+    RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule
   ],
